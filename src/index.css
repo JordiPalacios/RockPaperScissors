@@ -1,0 +1,146 @@
+* {
+  --bg-50: #f6f6f6;
+  --bg-100: #e7e7e7;
+  --bg-200: #d1d1d1;
+  --bg-300: #b0b0b0;
+  --bg-400: #888888;
+  --bg-500: #6d6d6d;
+  --bg-600: #5d5d5d;
+  --bg-700: #4f4f4f;
+  --bg-800: #454545;
+  --bg-900: #3d3d3d;
+  --bg-950: #000000;
+
+  --shadow-blue: #00ffff;
+  
+  margin: 0px;
+  padding: 0px;
+  font-size: 16px;
+  font-family:  'Helvetica Neue', 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  filter: drop-shadow(4px 4px 6px var(--bg-900));
+}
+
+body {
+  background: var(--bg-950);
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px;
+  padding: 0; 
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 100px;
+  margin: 20px;
+  width: 400px;
+  background: var(--bg-400);
+  color: var(--bg-50);
+  border-radius: 40px;
+  filter: drop-shadow(4px 4px 20px var(--shadow-blue));
+}
+
+.tittle {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.marker {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 20px;
+  border: 5px dotted var(--bg-950);
+}
+
+.user,
+.pc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.user h4, 
+.user p,
+.pc h4,
+.pc p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user b,
+.pc b {
+  font-size: 2rem;
+  color: var(--bg-950);
+  filter: drop-shadow(2px 2px 2px var(--bg-100));
+}
+
+button,
+button .playAgain {
+  background-color: var(--bg-300);
+  color: var(--bg-950);
+  padding: 5px;
+  margin: 5px;
+  transition: transform .75s ease, background-color .3s ease;
+  border:5px outset var(--bg-500);
+  border-radius: 5%;
+}
+
+button:hover,
+button:hover .playAgain {
+  background-color: var(--bg-200);
+  transform: scale(1.4);
+}
+
+.items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 2px;
+  padding: 5px 2px;
+}
+
+.items button {
+  background-color: var(--bg-200);
+  width: 50px;
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  filter: drop-shadow(4px 4px 6px var(--bg-600));
+  transition: transform .5s ease, background-color .3s ease,
+  filter .5s ease;
+}
+
+.items button:disabled {
+  opacity: .5;
+}
+
+.items button:hover {
+  background-color: var(--bg-100);
+  transform: scale(1.75);
+  filter: drop-shadow(0px 0px 6px var(--shadow-blue));
+}
+
+.texts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0px 0px 6px var(--bg-900));
+}
+
+.result p {
+  font-size: 3.5rem;
+}
