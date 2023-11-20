@@ -91,15 +91,20 @@ export default function Game() {
           <h1>Play Now!</h1>
           <div className="marker">
               <div className="user">
-                <h4>
+                <h2>
                   User Wins: 
-                  <p><b>{userTimesWin}</b></p>
-                </h4>
+                </h2>
+                <p>
+                  <b>{userTimesWin}</b>
+                </p>
               </div>
               <div className="pc">
-                <h4>
-                  PC Wins: <p><b>{iaTimesWin}</b></p>
-                </h4>
+                <h2>
+                  PC Wins:
+                </h2>
+                <p>
+                  <b>{iaTimesWin}</b>
+                </p>
               </div>
           </div>
             <button onClick={() => resetResults()}><b>Reset Results</b></button>
