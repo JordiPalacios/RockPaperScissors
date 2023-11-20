@@ -1,19 +1,19 @@
 import confetti from 'canvas-confetti';
 import { useEffect, useState } from 'react'
-import { Combinations, GetResult } from './components';
-
+import { Combinations, GetResult, Messages } from './components';
 
 export default function Game() {
+  let onResetMessages = false;
+
   const [userChoice, setUserChoice] = useState(null)
-  const [userMessage, setUserMessage] = useState(null)
   const [iaChoice, setIAChoice] = useState(null)
-  const [iaMessage, setIAMessage] = useState(null)
+  const { userMessage, iaMessage} = Messages({ userChoice, iaChoice, onResetMessages })
   const [result, setResult] = useState(null)
   const [disabled, setDisabled] = useState(false)
   const [buttonDisabled, setButtonDisabled] = useState(true)
   const [isVisible, setIsVisible] = useState(false)
   const [userTimesWin, setUserTimesWin] = useState(() => {
-    const storedWin = localStorage.getItem('userTimesWin');
+  const storedWin = localStorage.getItem('userTimesWin');
     return storedWin ? parseInt(storedWin, 10) : 0; 
   })
   const [iaTimesWin, setIATimesWin] = useState(() => {
@@ -21,19 +21,6 @@ export default function Game() {
     return storedLose ? parseInt(storedLose, 10) : 0;
   })
 
-  useEffect (() => {
-    if (userChoice !== null) {
-      setUserMessage(`Your choise is ${Combinations[userChoice]?.emoji} - ${Combinations[userChoice]?.name}`);
-    } 
-
-  },[userChoice])
-
-  useEffect (() => {
-    if (iaChoice !== null) {
-      setIAMessage(`Computer choise is ${Combinations[iaChoice]?.emoji} - ${Combinations[iaChoice]?.name}`);
-    } 
-
-  },[iaChoice])
 
   useEffect (() => {
     localStorage.setItem('userTimesWin', userTimesWin.toString())
@@ -74,13 +61,12 @@ export default function Game() {
 
   const handlePlayAgain = () => {
     setUserChoice(null)
-    setUserMessage(null)
     setIAChoice(null)
-    setIAMessage(null)
     setResult(null)
     setDisabled(false)
     setButtonDisabled(true)
     setIsVisible(false)
+    onResetMessages = true
   }
 
 
