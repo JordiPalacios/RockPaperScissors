@@ -1,4 +1,4 @@
-import { Combinations } from "./combinations";
+import { Combinations } from "./Combinations";
 
 export const GetResult = (userChoice, pcChoice) => {
     if (userChoice === pcChoice) {
